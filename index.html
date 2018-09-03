@@ -158,6 +158,114 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础（自用） 待更新ing" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h1><h3 id="Java特性"><a href="#Java特性" class="headerlink" title="Java特性"></a>Java特性</h3><ul>
+<li>面向对象（封装，继承，多态）</li>
+<li>平台无关性（JVM运行.class文件）</li>
+<li>语言（泛型，Lambda）</li>
+<li>类库（集合，并发，网络，IO/NIO）</li>
+<li>JRE（Java运行环境，JVM，类库）</li>
+<li>JDK（Java开发工具，包括JRE，javac，诊断工具）<h3 id="Java是解析运行吗？"><a href="#Java是解析运行吗？" class="headerlink" title="Java是解析运行吗？"></a>Java是解析运行吗？</h3></li>
+</ul>
+<ol>
+<li>Java源代码经过Javac编译成.class文件</li>
+<li>.class文件经JVM解析或编译运行。</li>
+<li>（1）解析:.class文件经过JVM内嵌的解析器解析执行。</li>
+<li>（2）编译:存在JIT编译器（Just In Time Compile 即时编译器）把经常运行的代码作为”热点代码”编译与本地平台相关的机器码，并进行各种层次的优化。</li>
+<li>（3）AOT编译器: Java 9提供的直接将所有代码编译成机器码执行。</li>
+</ol>
+<h2 id="“一次编译，到处执行”"><a href="#“一次编译，到处执行”" class="headerlink" title="“一次编译，到处执行”"></a>“一次编译，到处执行”</h2><blockquote>
+<p>“一次编译、到处运行”说的是Java语言跨平台的特性，Java的跨平台特性与Java虚拟机的存在密不可分，可在不同的环境中运行。比如说Windows平台和Linux平台都有相应的JDK，安装好JDK后也就有了Java语言的运行环境。其实Java语言本身与其他的编程语言没有特别大的差异，并不是说Java语言可以跨平台，而是在不同的平台都有可以让Java语言运行的环境而已，所以才有了Java一次编译，到处运行这样的效果。<br>严格的讲，跨平台的语言不止Java一种，但Java是较为成熟的一种。“一次编译，到处运行”这种效果跟编译器有关。编程语言的处理需要编译器和解释器。Java虚拟机和DOS类似，相当于一个供程序运行的平台。<br>程序从源代码到运行的三个阶段：编码——编译——运行——调试。Java在编译阶段则体现了跨平台的特点。编译过程大概是这样的：首先是将Java源代码转化成.CLASS文件字节码，这是第一次编译。.class文件就是可以到处运行的文件。然后Java字节码会被转化为目标机器代码，这是是由JVM来执行的，即Java的第二次编译。<br>“到处运行”的关键和前提就是JVM。因为在第二次编译中JVM起着关键作用。在可以运行Java虚拟机的地方都内含着一个JVM操作系统。从而使JAVA提供了各种不同平台上的虚拟机制，因此实现了“到处运行”的效果。需要强调的一点是，java并不是编译机制，而是解释机制。Java字节码的设计充分考虑了JIT这一即时编译方式，可以将字节码直接转化成高性能的本地机器码，这同样是虚拟机的一个构成部分。”</p>
+</blockquote>
+<p>==面试题==</p>
+<h6 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h6><blockquote>
+<p>大部分情况，这是一场面试的开门题，面试官问这个问题，主要是考察你的概述能力和全局视野。有的人经常抱怨自己每天在堆业务，但没有成长。事实上，很多情况下确实在堆业务，但并不是没有成长的。并非做中间件或者技术架构才是成长，例如我们的需求分析能力，沟通协作能力，产品思维能力，抽象建模能力等都是一个非常重要的硬实力。<br>好的，现在进入正文。</p>
+<ol>
+<li>明确项目是做什么的</li>
+<li>明确项目的价值。（为什么做这个项目，它解决了用户什么痛点，它带来什么价值？）</li>
+<li>明确项目的功能。（这个项目涉及哪些功能？）</li>
+<li>明确项目的技术。（这个项目用到哪些技术？）</li>
+<li>明确个人在项目中的位置和作用。（你在这个项目的承担角色？）</li>
+<li>明确项目的整体架构。</li>
+<li>明确项目的优缺点,如果重新设计你会如何设计。</li>
+<li>明确项目的亮点。（这个项目有什么亮点？）</li>
+<li>明确技术成长。（你通过这个项目有哪些技术成长？）</li>
+</ol>
+</blockquote>
+<h5 id="1-List-和-Set-的区别"><a href="#1-List-和-Set-的区别" class="headerlink" title="1. List 和 Set 的区别"></a>1. List 和 Set 的区别</h5><blockquote>
+<p>List:</p>
+<ol>
+<li>不允许有重复的对象</li>
+<li>可以插入多个null元素</li>
+<li>是一个有序容器，保持了每个元素的插入顺序。输出的顺序就是插入的顺序。</li>
+<li>常用的实现类有 ArrayList LinkedList 和 Vector. ArrayList 最为流行，它提供了使用索引的随意访问，而LiknedList 则对于经常需要从List 中添加或删除元素的场合更为合适</li>
+</ol>
+</blockquote>
+<blockquote>
+<p> Set：</p>
+<ol>
+<li>不允许重复对象</li>
+<li>无序容器，你无法保证每个元素的存储顺序，TreeSet通过 Comparator  或者 Comparable 维护了一个排序顺序。</li>
+<li>只允许一个 null 元素</li>
+<li>Set 接口最流行的几个实现类是 HashSet、LinkedHashSet 以及 TreeSet。最流行的是基于 HashMap 实现的 HashSet；TreeSet 还实现了 SortedSet 接口，因此 TreeSet 是一个根据其 compare() 和 compareTo() 的定义进行排序的有序容器。<br><a href="https://www.cnblogs.com/IvesHe/p/6108933.html" target="_blank" rel="noopener">https://www.cnblogs.com/IvesHe/p/6108933.html</a></li>
+</ol>
+</blockquote>
+<h5 id="2、HashSet-是如何保证不重复的"><a href="#2、HashSet-是如何保证不重复的" class="headerlink" title="2、HashSet 是如何保证不重复的"></a>2、HashSet 是如何保证不重复的</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</span><br><span class="line">                V oldValue = e.value;</span><br><span class="line">                e.value = value;</span><br><span class="line">                e.recordAccess(this);</span><br><span class="line">                return oldValue;</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>先判断的hashCode，hashCode不同，则元素值一定不同。<br>hashCode相同，但元素未必相同,还需调用equals判断<br>如果equals为true，则相同，排除此元素</p>
+</blockquote>
+<h5 id="3、HashMap-是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）"><a href="#3、HashMap-是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）" class="headerlink" title="3、HashMap 是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）?"></a>3、HashMap 是线程安全的吗，为什么不是线程安全的（最好画图说明多线程环境下不安全）?</h5><blockquote>
+<p>其实就是HashMap Hashtable区别<br>1、前者非线程安全，后者线程安全<br>2、前者效率高，后者低（如果说到非线程安全，你可以闭着眼睛，下一点就说他的效率高，这是相对的）<br>3、其实是不是线程安全，你可以查看源代码，他里面的一些对元素变动的方法中，有没有这个关键字：synchronized</p>
+</blockquote>
+<h5 id="4、HashMap-的扩容过程"><a href="#4、HashMap-的扩容过程" class="headerlink" title="4、HashMap 的扩容过程"></a>4、HashMap 的扩容过程</h5><blockquote>
+<p>什么时候扩容：当向容器添加元素的时候，会判断当前容器的元素个数，如果大于等于阈值—即当前数组的长度乘以加载因子的值的时候，就要自动扩容啦。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/03/Java基础（自用） 待更新ing/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySql常用30种SQL查询语句优化方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,68 +273,107 @@
       
         <h1 id="MySql常用30种SQL查询语句优化方法"><a href="#MySql常用30种SQL查询语句优化方法" class="headerlink" title="MySql常用30种SQL查询语句优化方法"></a>MySql常用30种SQL查询语句优化方法</h1><p>标签（空格分隔）： Msyql</p>
 <hr>
-<p>1、应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。</p>
-<p>2、对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
-<p>3、应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描。如：</p>
-<pre><code>select id from t where num is null
-</code></pre><p>复制代码可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：</p>
-<pre><code>select id from t where num=0
-</code></pre><p>4、尽量避免在 where 子句中使用 or 来连接条件，否则将导致引擎放弃使用索引而进行全表扫描，如：</p>
-<pre><code>select id from t where num=10 or num=20
-</code></pre><p>可以这样查询：</p>
-<pre><code>select id from t where num=10
-union all
-select id from t where num=20
-</code></pre><p>5、下面的查询也将导致全表扫描：(不能前置百分号)</p>
-<pre><code>select id from t where name like ‘%c%’
-</code></pre><p>下面走索引</p>
-<pre><code>select id from t where name like ‘c%’
-</code></pre><p>若要提高效率，可以考虑全文检索。</p>
-<p>6、in 和 not in 也要慎用，否则会导致全表扫描，如：</p>
-<pre><code>select id from t where num in(1,2,3)
-</code></pre><p>对于连续的数值，能用 between 就不要用 in 了：</p>
-<pre><code>select id from t where num between 1 and 3
-</code></pre><p>7、如果在 where 子句中使用参数，也会导致全表扫描。因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：</p>
-<pre><code>select id from t where num=@num
-</code></pre><p>可以改为强制查询使用索引：</p>
-<pre><code>select id from t with(index(索引名)) where num=@num    
-</code></pre><p>8、应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：</p>
-<pre><code>select id from t where num/2=100
-</code></pre><p>应改为:</p>
-<pre><code>select id from t where num=100*2
-</code></pre><p>9、应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：</p>
-<pre><code>select id from t where substring(name,1,3)=’abc’–name以abc开头的id
-select id from t where datediff(day,createdate,’2005-11-30′)=0–’2005-11-30′生成的id
-</code></pre><p>应改为:</p>
-<pre><code>select id from t where name like ‘abc%’
-select id from t where createdate&gt;=’2005-11-30′ and createdate&lt;’2005-12-1′
-</code></pre><p>10、不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算，否则系统将可能无法正确使用索引。</p>
+<ol>
+<li><p>应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。</p>
+</li>
+<li><p>对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
+</li>
+<li><p>应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描。如：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num is null</span><br></pre></td></tr></table></figure>
+<p>复制代码可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=0</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>尽量避免在 where 子句中使用 or 来连接条件，否则将导致引擎放弃使用索引而进行全表扫描，如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=10 or num=20</span><br></pre></td></tr></table></figure>
+<p>可以这样查询：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=10</span><br><span class="line">    union all</span><br><span class="line">    select id from t where num=20</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>下面的查询也将导致全表扫描：(不能前置百分号)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where name like ‘%c%’</span><br></pre></td></tr></table></figure>
+<p>下面走索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where name like ‘c%’</span><br></pre></td></tr></table></figure>
+<p>若要提高效率，可以考虑全文检索。</p>
+<ol start="6">
+<li>in 和 not in 也要慎用，否则会导致全表扫描，如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num in(1,2,3)</span><br></pre></td></tr></table></figure>
+<p>对于连续的数值，能用 between 就不要用 in 了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num between 1 and 3</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>如果在 where 子句中使用参数，也会导致全表扫描。因为SQL只有在运行时才会解析局部变量，但优化程序不能将访问计划的选择推迟到运行时；它必须在编译时进行选择。然 而，如果在编译时建立访问计划，变量的值还是未知的，因而无法作为索引选择的输入项。如下面语句将进行全表扫描：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=@num</span><br></pre></td></tr></table></figure>
+<p>可以改为强制查询使用索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t with(index(索引名)) where num=@num</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num/2=100</span><br></pre></td></tr></table></figure>
+<p>应改为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select id from t where num=100*2</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li>应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select id from t where substring(name,1,3)=’abc’–name以abc开头的id</span><br><span class="line">    select id from t where datediff(day,createdate,’2005-11-30′)=0–’2005-11-30′生成的id</span><br></pre></td></tr></table></figure>
+<p>应改为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select id from t where name like ‘abc%’</span><br><span class="line">    select id from t where createdate&gt;=’2005-11-30′ and createdate&lt;’2005-12-1′</span><br></pre></td></tr></table></figure>
+<ol start="10">
+<li>不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算，否则系统将可能无法正确使用索引。</li>
+</ol>
 <p>11、在使用索引字段作为条件时，如果该索引是复合索引，那么必须使用到该索引中的第一个字段作为条件时才能保证系统使用该索引，否则该索引将不会被使 用，并且应尽可能的让字段顺序与索引顺序相一致。</p>
-<p>12、不要写一些没有意义的查询，如需要生成一个空表结构：</p>
-<pre><code>select col1,col2 into #t from t where 1=0
-</code></pre><p>这类代码不会返回任何结果集，但是会消耗系统资源的，应改成这样：</p>
-<pre><code>create table #t(…)
-</code></pre><p>13、很多时候用 exists 代替 in 是一个好的选择：</p>
-<pre><code>select num from a where num in(select num from b)
-</code></pre><p>用下面的语句替换：</p>
-<pre><code>select num from a where exists(select 1 from b where num=a.num)
-</code></pre><p>14、并不是所有索引对查询都有效，SQL是根据表中数据来进行查询优化的，当索引列有大量数据重复时，SQL查询可能不会去利用索引，如一表中有字段<br>sex，male、female几乎各一半，那么即使在sex上建了索引也对查询效率起不了作用。</p>
-<p>15、索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了 insert 及 update 的效率，因为 insert 或 update<br>时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个，若太多则应考虑一些不常使用到的列上建的索引是否有 必要。</p>
-<p>16.应尽可能的避免更新 clustered 索引数据列，因为 clustered 索引数据列的顺序就是表记录的物理存储顺序，一旦该列值改变将导致整个表记录的顺序的调整，会耗费相当大的资源。若应用系统需要频繁更新 clustered 索引数据列，那么需要考虑是否应将该索引建为 clustered 索引。</p>
-<p>17、尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询和连接的性能，并会增加存储开销。这是因为引擎在处理查询和连接时会 逐个比较字符串中每一个字符，而对于数字型而言只需要比较一次就够了。</p>
-<p>18、尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
-<p>19、任何地方都不要使用 select <em> from t ，用具体的字段列表代替“</em>”，不要返回用不到的任何字段。</p>
-<p>20、尽量使用表变量来代替临时表。如果表变量包含大量数据，请注意索引非常有限（只有主键索引）。</p>
-<p>21、避免频繁创建和删除临时表，以减少系统表资源的消耗。</p>
+<ol start="12">
+<li>不要写一些没有意义的查询，如需要生成一个空表结构：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select col1,col2 into #t from t where 1=0</span><br></pre></td></tr></table></figure>
+<p>这类代码不会返回任何结果集，但是会消耗系统资源的，应改成这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table #t(…)</span><br></pre></td></tr></table></figure>
+<ol start="13">
+<li>很多时候用 exists 代替 in 是一个好的选择：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select num from a where num in(select num from b)</span><br></pre></td></tr></table></figure>
+<p>用下面的语句替换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select num from a where exists(select 1 from b where num=a.num)</span><br></pre></td></tr></table></figure>
+<ol start="14">
+<li><p>并不是所有索引对查询都有效，SQL是根据表中数据来进行查询优化的，当索引列有大量数据重复时，SQL查询可能不会去利用索引，如一表中有字段<br>sex，male、female几乎各一半，那么即使在sex上建了索引也对查询效率起不了作用。</p>
+</li>
+<li><p>索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了 insert 及 update 的效率，因为 insert 或 update<br>时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个，若太多则应考虑一些不常使用到的列上建的索引是否有 必要。</p>
+</li>
+<li><p>应尽可能的避免更新 clustered 索引数据列，因为 clustered 索引数据列的顺序就是表记录的物理存储顺序，一旦该列值改变将导致整个表记录的顺序的调整，会耗费相当大的资源。若应用系统需要频繁更新 clustered 索引数据列，那么需要考虑是否应将该索引建为 clustered 索引。</p>
+</li>
+<li><p>尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询和连接的性能，并会增加存储开销。这是因为引擎在处理查询和连接时会 逐个比较字符串中每一个字符，而对于数字型而言只需要比较一次就够了。</p>
+</li>
+<li><p>尽可能的使用 varchar/nvarchar 代替 char/nchar ，因为首先变长字段存储空间小，可以节省存储空间，其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。</p>
+</li>
+<li><p>任何地方都不要使用 select <em> from t ，用具体的字段列表代替“</em>”，不要返回用不到的任何字段。</p>
+</li>
+<li><p>尽量使用表变量来代替临时表。如果表变量包含大量数据，请注意索引非常有限（只有主键索引）。</p>
+</li>
+<li><p>避免频繁创建和删除临时表，以减少系统表资源的消耗。</p>
+</li>
+</ol>
 <p>22、临时表并不是不可使用，适当地使用它们可以使某些例程更有效，例如，当需要重复引用大型表或常用表中的某个数据集时。但是，对于一次性事件，最好使 用导出表。</p>
-<p>23、在新建临时表时，如果一次性插入数据量很大，那么可以使用 select into 代替 create table，避免造成大量 log ，以提高速度；如果数据量不大，为了缓和系统表的资源，应先create table，然后insert。</p>
-<p>24、如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
-<p>25、尽量避免使用游标，因为游标的效率较差，如果游标操作的数据超过1万行，那么就应该考虑改写。</p>
-<p>26、使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。</p>
-<p>27、与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD<br>游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时 间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。</p>
-<p>28、在所有的存储过程和触发器的开始处设置 SET NOCOUNT ON ，在结束时设置 SET NOCOUNT OFF 。无需在执行存储过程和触发器的每个语句后向客户端发送 DONE_IN_PROC 消息。</p>
-<p>29、尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</p>
-<p>30、尽量避免大事务操作，提高系统并发能力。</p>
+<ol start="23">
+<li><p>在新建临时表时，如果一次性插入数据量很大，那么可以使用 select into 代替 create table，避免造成大量 log ，以提高速度；如果数据量不大，为了缓和系统表的资源，应先create table，然后insert。</p>
+</li>
+<li><p>如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
+</li>
+<li><p>尽量避免使用游标，因为游标的效率较差，如果游标操作的数据超过1万行，那么就应该考虑改写。</p>
+</li>
+<li><p>使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。</p>
+</li>
+<li><p>与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD<br>游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时 间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。</p>
+</li>
+<li><p>在所有的存储过程和触发器的开始处设置 SET NOCOUNT ON ，在结束时设置 SET NOCOUNT OFF 。无需在执行存储过程和触发器的每个语句后向客户端发送 DONE_IN_PROC 消息。</p>
+</li>
+<li><p>尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</p>
+</li>
+<li><p>尽量避免大事务操作，提高系统并发能力。</p>
+</li>
+</ol>
 
       
 
@@ -240,139 +387,6 @@ select id from t where createdate&gt;=’2005-11-30′ and createdate&lt;’2005
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/08/31/MySql常用30种SQL查询语句优化方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hi" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/hi/">hi</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hi/" class="archive-article-date">
-  	<time datetime="2018-08-30T16:57:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/31/hi/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/31/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/31/hello-world/" class="archive-article-date">
-  	<time datetime="2018-08-30T16:53:08.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/31/hello-world/">展开全文 >></a>
         </p>
       
 
